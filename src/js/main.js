@@ -13,11 +13,8 @@ new Swiper('.games__content', {
         prevEl: '.swiper-button-prev'
     },
     slidesPerGroup: 1,
-    breakpoints: {
-        1800: {
-            slidesPerView: 5,
-        }
-    }
+    slidesPerView: 5,
+    slidesPerView: 'auto'
 });
 
 // Popup
@@ -56,25 +53,52 @@ $(window).scroll(function () {
         return false;
     });
 
-// choose 
-$('#vienna').click(function(e) {
+
+// hide
+$('.linz').hide();
+$('.innsbruck').hide();
+
+// vienna
+$('#vienna-btn').click(function(e) {
     e.preventDefault();
     $('.popup').fadeIn(400);
     $('body').addClass('lock');
 });
-$('#vienna').click(function() {
+$('#vienna-btn').click(function() {
     $('.popup').fadeOut(400);
     $('body').removeClass('lock');
+    $('.linz,.innsbruck').hide()
+    $('.vienna').slideDown(600)
+    $('#vienna-btn').addClass('active');
+    $('#linz-btn,#innsbruck-btn').removeClass('active');
 });
 
 // linz
-
-$('#linz').click(function(e) {
+$('#linz-btn').click(function(e) {
     e.preventDefault();
     $('.popup').fadeIn(400);
     $('body').addClass('lock');
 });
-$('#linz').click(function() {
+$('#linz-btn').click(function() {
     $('.popup').fadeOut(400);
     $('body').removeClass('lock');
+    $('.vienna,.innsbruck').hide()
+    $('.linz').slideDown(600)
+    $('#linz-btn').addClass('active');
+    $('#vienna-btn,#innsbruck-btn').removeClass('active');
+});
+
+// innsbruck
+$('#innsbruck-btn').click(function(e) {
+    e.preventDefault();
+    $('.popup').fadeIn(400);
+    $('body').addClass('lock');
+});
+$('#innsbruck-btn').click(function() {
+    $('.popup').fadeOut(400);
+    $('body').removeClass('lock');
+    $('.vienna,.linz').hide()
+    $('.innsbruck').slideDown(600)
+    $('#innsbruck-btn').addClass('active');
+    $('#vienna-btn,#linz-btn').removeClass('active');
 });

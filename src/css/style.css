@@ -40,17 +40,17 @@
   font-weight: 100;
 }
 
-.intro__text-subtitle, .games__block .block__img-tags, .games__block .block__info-time, .games__block .block__info-lvl, .games__block .block__info-players, .games__block .block__info-btn, .footer__nav-link, .footer__language-link, .popup__group-title, .cookies__text {
+.header__navbar, .intro__text-subtitle, .intro__text-btn, .games__block .block__img-tags, .games__block .block__info-time, .games__block .block__info-lvl, .games__block .block__info-players, .games__block .block__info-btn, .footer__nav-link, .footer__language-link, .popup__group-title, .cookies__text {
   font-family: "MOS";
   font-weight: 300;
 }
 
-.header, .header__navbar {
+.header {
   font-family: "MOS";
   font-weight: 400;
 }
 
-.intro__text-title, .intro__text-btn, .games__title, .games__block .block__info-title, .popup__block-city, .cookies__btn {
+.intro__text-title, .games__title, .games__block .block__info-title, .popup__block-city, .cookies__btn {
   font-family: "MOS";
   font-weight: 500;
 }
@@ -85,8 +85,6 @@ body.lock {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
-  font-style: normal;
-  font-weight: 400;
   font-size: 14px;
   line-height: 18px;
   color: #f7f5f9;
@@ -103,7 +101,6 @@ body.lock {
     top: 62px;
     height: 100vh;
     background: #121212;
-    padding-top: 25px;
     border-left: 1px solid rgba(255, 255, 255, 0.15);
     -webkit-transition: 0.5s ease;
     transition: 0.5s ease;
@@ -164,7 +161,7 @@ body.lock {
 
 @media (max-width: 1440px) {
   .header__city {
-    padding-bottom: 20px;
+    padding: 20px;
   }
 }
 
@@ -202,7 +199,7 @@ body.lock {
 
 @media (max-width: 1440px) {
   .header__phone {
-    padding-bottom: 30px;
+    padding-bottom: 10px;
   }
 }
 
@@ -230,6 +227,7 @@ body.lock {
   display: -ms-flexbox;
   display: flex;
   height: 100%;
+  width: 100%;
 }
 
 @media (min-width: 1441px) {
@@ -253,14 +251,8 @@ body.lock {
   }
 }
 
-@media (max-width: 1440px) {
-  .header__menu-item {
-    padding-bottom: 15px;
-  }
-}
-
 .header__menu-link {
-  padding: 0 30px;
+  padding: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -273,6 +265,12 @@ body.lock {
   line-height: 18px;
   color: #f7f5f9;
   height: 100%;
+}
+
+@media (max-width: 1440px) {
+  .header__menu-link {
+    padding: 15px 30px;
+  }
 }
 
 .header__language {
@@ -392,6 +390,7 @@ body.lock {
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: flex-end;
+    padding-bottom: 60px;
   }
 }
 
@@ -436,13 +435,18 @@ body.lock {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: #e50012;
+  background: url(../img/button-desktop.svg) center no-repeat;
+  background-size: cover;
   font-size: 14px;
   line-height: 18px;
   color: #f7f5f9;
   width: 140px;
   height: 60px;
   margin-bottom: 40px;
+}
+
+.intro__text-btn-mobile {
+  display: none;
 }
 
 @media (max-width: 1024px) {
@@ -455,6 +459,14 @@ body.lock {
 @media (max-width: 425px) {
   .intro__text-btn {
     width: 100%;
+    background: url(../img/button-mobile.svg) center no-repeat;
+    background-size: cover;
+  }
+  .intro__text-btn-mobile {
+    display: block;
+  }
+  .intro__text-btn-desktop {
+    display: none;
   }
 }
 
@@ -495,6 +507,8 @@ body.lock {
 
 .games__container .swiper-button-prev,
 .games__container .swiper-button-next {
+  display: block;
+  z-index: 50;
   height: 50px;
   width: 50px;
 }
@@ -536,10 +550,9 @@ body.lock {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  gap: 10.5px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .games__title {
@@ -552,6 +565,11 @@ body.lock {
 .games__block {
   max-width: 327px;
   background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.games__block:not(:last-child) {
+  margin-right: 10.5px;
 }
 
 .games__block .block__img {
@@ -579,6 +597,7 @@ body.lock {
   z-index: -10;
   position: relative;
   width: 100%;
+  height: 492px;
 }
 
 .games__block .block__info {
