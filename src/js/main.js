@@ -15,7 +15,7 @@ new Swiper('.games__content', {
     slidesPerGroup: 1,
     breakpoints: {
         1800: {
-            slidesPerView: 4,
+            slidesPerView: 5,
         }
     }
 });
@@ -55,3 +55,26 @@ $(window).scroll(function () {
         }, 600);
         return false;
     });
+
+// choose 
+$('#vienna').click(function(e) {
+    e.preventDefault();
+    $('.popup').fadeIn(400);
+    $('body').addClass('lock');
+});
+$('#vienna').click(function() {
+    $('.popup').fadeOut(400);
+    $('body').removeClass('lock');
+});
+
+// linz
+
+$('#linz').click(function(e) {
+    e.preventDefault();
+    $('.popup').fadeIn(400);
+    $('body').addClass('lock');
+});
+$('#linz').click(function() {
+    $('.popup').fadeOut(400);
+    $('body').removeClass('lock');
+});
