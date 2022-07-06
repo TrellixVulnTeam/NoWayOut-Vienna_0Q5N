@@ -544,6 +544,29 @@ body.lock {
   border-radius: 50px;
 }
 
+.games__content.linz .games__wrapper, .games__content.innsbruck .games__wrapper {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .games__content.linz .games__wrapper, .games__content.innsbruck .games__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.games__content.linz .games__block, .games__content.innsbruck .games__block {
+  margin: 0;
+  width: 100%;
+}
+
 .games__wrapper {
   position: relative;
   z-index: 1;
